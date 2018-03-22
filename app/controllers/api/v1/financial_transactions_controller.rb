@@ -1,6 +1,7 @@
 module Api
   module V1
     class FinancialTransactionsController < ApplicationController
+      before_action :validate_api_key!
       before_action :validate_params, only: [:index]
 
       # GET /api/v1/financial_transactions
@@ -21,6 +22,14 @@ module Api
 
       def allowed_params
         params.permit(:type_id, :datetime, :value, :cpf, :card_number)
+      end
+
+      def valid_api_key?
+        ApiKey.exists?(access_token: request.headers['X-Api-Key'])
+      end
+
+      def validate_api_key!
+        raise ExceptionHandler::InvalidToken, 'Invalid X-Api-Key' unless valid_api_key?
       end
     end
   end

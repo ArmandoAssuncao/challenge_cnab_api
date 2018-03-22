@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_180_321_001_440) do
+ActiveRecord::Schema.define(version: 20_180_322_192_118) do
+  create_table 'api_keys', force: :cascade do |t|
+    t.string 'access_token', null: false
+    t.string 'email', null: false
+    t.string 'description', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['access_token'], name: 'index_api_keys_on_access_token', unique: true
+  end
+
   create_table 'financial_transactions', force: :cascade do |t|
     t.integer 'type_id', null: false
     t.datetime 'datetime', null: false
