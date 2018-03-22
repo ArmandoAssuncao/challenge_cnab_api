@@ -10,16 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321001440) do
-
-  create_table "financial_transactions", force: :cascade do |t|
-    t.integer "type_id", null: false
-    t.datetime "datetime", null: false
-    t.decimal "value", null: false
-    t.string "cpf", null: false
-    t.string "card_number", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+ActiveRecord::Schema.define(version: 20_180_321_001_440) do
+  create_table 'financial_transactions', force: :cascade do |t|
+    t.integer 'type_id', null: false
+    t.datetime 'datetime', null: false
+    t.decimal 'value', null: false
+    t.string 'cpf', null: false
+    t.string 'card_number', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
-
 end

@@ -3,7 +3,9 @@ class FinancialTransactionSerializer < ActiveModel::Serializer
 
   def attributes(*args)
     transaction = super(*args)
-    transaction[:datetime] = object.datetime.strftime('%Y-%m-%d %H:%M:%S:%L%z') if object.datetime.present?
+    if object.datetime.present?
+      transaction[:datetime] = object.datetime.strftime('%Y-%m-%d %H:%M:%S:%L%z')
+    end
     transaction
   end
 end

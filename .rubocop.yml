@@ -1,0 +1,13 @@
+AllCops:
+  Exclude:
+    - 'bin/**'
+
+Metrics/BlockLength:
+  Max: 50
+  Exclude:
+    - 'spec/**/*.rb'
+Metrics/LineLength:
+  Max: 100
+  IgnoredPatterns: ['\A#']
+Documentation:
+  Enabled: false

@@ -5,6 +5,6 @@ class ApplicationController < ActionController::API
   ActionController::Parameters.action_on_unpermitted_parameters = :raise
 
   def routing_error
-    raise ActionController::RoutingError.new(params[:path])
+    raise ActionController::RoutingError, params[:path]
   end
 end
