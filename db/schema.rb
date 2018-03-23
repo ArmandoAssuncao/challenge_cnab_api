@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20_180_322_192_118) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension 'plpgsql'
+
   create_table 'api_keys', force: :cascade do |t|
     t.string 'access_token', null: false
     t.string 'email', null: false

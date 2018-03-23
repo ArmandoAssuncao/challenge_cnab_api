@@ -7,7 +7,7 @@ module ExceptionHandler
 
   included do
     # rescue_from StandardError, with: :render_unprocessable_entity
-    rescue_from ActiveModel::ValidationError, with: :render_bad_request
+    # rescue_from ActiveModel::ValidationError, with: :render_bad_request
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
     rescue_from ActionController::RoutingError, with: :render_bad_request
