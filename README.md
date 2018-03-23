@@ -37,3 +37,9 @@ Has only one endpoint to access the api:
 ```
 curl --header "X-Api-Key: YOUR_KEY" http://localhost:3000/api/v1/financial_transactions
 ```
+
+#### Accessing the API DOC
+open the browser in:
+```
+http://localhost:3000/apidocs
+```
