@@ -1,24 +1,39 @@
-# README
+# Challenge CNAB Api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In short, the challenge is to develop an application in RoR, which should read a `CNAB.txt` file and insert its data into the database. These recorded data must be exposed by a non-public API.
 
-Things you may want to cover:
+### Made with:
+* Rails 5.x
+* Rubocop
+* Rspec
+* Rake tasks
+* PostgreSQL
+* ActiveModel Serializer
+* Api key validation
 
-* Ruby version
+### How to use
 
-* System dependencies
+#### Populate DB with CNAB.txt
+Run the following command to populate:
+```
+rake cnab:insert_cnab
+```
 
-* Configuration
+#### Generate the API Key
+You'll need has a api key to access the api.  
+Run the following command and copy the key showed.  
+Is necessary add an **email** and a **description** for generate the key, only for later identification.
+```
+rake apikey:generate['foo@test.com','something description']
+```
 
-* Database creation
+#### Running the server
+```
+rails server
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Accessing the API
+Has only one endpoint to access the api:
+```
+curl --header "X-Api-Key: YOUR_KEY" http://localhost:3000/api/v1/financial_transactions
+```
